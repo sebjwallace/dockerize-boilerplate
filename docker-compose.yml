@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  nodejs-service:
+    depends_on:
+      - python-service
+    links:
+      - python-service
+    container_name: nodejs-service
+    build: ./services/nodejs
+    ports:
+      - 3000:3000
+    volumes:
+      - ./services/nodejs/src:/usr/src/app/src
+    working_dir: /usr/src/app/src
+    command: nodemon app.js
+
+  python-service:
+    container_name: python-service
+    build: ./services/python
+    ports:
+      - 5000:5000
+    volumes:
+      - ./services/python/src:/usr/src/app/src
+    working_dir: /usr/src/app/src
+    command: nodemon app.py

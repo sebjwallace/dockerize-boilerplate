@@ -1,0 +1,12 @@
+{
+  "name": "dockerize-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "author": "sebjwallace",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1"
+  }
+}
