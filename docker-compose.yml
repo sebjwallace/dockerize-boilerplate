@@ -10,10 +10,11 @@ services:
     build: ./services/nodejs
     ports:
       - 3000:3000
+      - 9229:9229
     volumes:
       - ./services/nodejs/src:/usr/src/app/src
     working_dir: /usr/src/app/src
-    command: nodemon app.js
+    command: nodemon --inspect=0.0.0.0 app.js
 
   python-service:
     container_name: python-service
